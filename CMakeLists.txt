@@ -17,5 +17,8 @@ add_definitions(${LLVM_DEFINITIONS_LIST})
 
 add_executable(llvm_exmpl main.cpp)
 
-llvm_map_components_to_libnames(llvm_libs aarch64asmparser aarch64codegen aarch64disassembler)
+llvm_map_components_to_libnames(llvm_libs
+    aarch64asmparser aarch64codegen aarch64disassembler
+    x86asmparser x86codegen x86disassembler x86targetmca
+)
 target_link_libraries(llvm_exmpl ${llvm_libs})
