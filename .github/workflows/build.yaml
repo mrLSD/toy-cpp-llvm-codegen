@@ -24,6 +24,7 @@ jobs:
           llvm-config --components
       - name: Build
         run: |
+          source /Users/runner/.bash_profile
           llvm-config --components
           mkdir build
           cd build
