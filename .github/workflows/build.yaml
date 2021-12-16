@@ -11,7 +11,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: swift-actions/setup-swift@v1
       - name: Pre-install
         run: |
           brew update
@@ -22,8 +21,10 @@ jobs:
           source /Users/runner/.bash_profile
           clang --version
           cmake --version
+          llvm-config --components
       - name: Build
         run: |
+          llvm-config --components
           mkdir build
           cd build
           cmake ..
