@@ -22,8 +22,6 @@ jobs:
           source /Users/runner/.bash_profile
           clang --version
           cmake --version
-      - name: Configure Project
-        uses: threeal/cmake-action@v1.3.0
       - name: Build
         run: |
           mkdir build
