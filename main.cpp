@@ -16,7 +16,7 @@
 
 //#include "llvm/IR/LegacyPassManager.h"
 //#include "llvm/Target/TargetOptions.h"
-// #include <llvm/Support/TargetSelect.h>
+#include <llvm/Support/TargetSelect.h>
 // #include <llvm/Support/Host.h>
 
 #include <system_error>
@@ -25,7 +25,7 @@
 using namespace llvm;
 
 int main() {
-//    InitializeNativeTarget();
+    InitializeNativeTarget();
 //    InitializeNativeTargetAsmPrinter();
 //    InitializeNativeTargetAsmParser();
 
