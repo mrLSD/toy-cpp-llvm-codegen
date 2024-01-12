@@ -13,15 +13,11 @@
 #include "llvm/Support/FileSystem.h"
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Target/TargetMachine.h"
+
 //#include "llvm/IR/LegacyPassManager.h"
 //#include "llvm/Target/TargetOptions.h"
-
-
-#include <llvm/Support/TargetSelect.h>
-
-#include <llvm/Support/Host.h>
-
-
+// #include <llvm/Support/TargetSelect.h>
+// #include <llvm/Support/Host.h>
 
 #include <system_error>
 #include <iostream>

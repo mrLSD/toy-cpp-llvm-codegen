@@ -1,0 +1,31 @@
+name: Clang
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: swift-actions/setup-swift@v1
+      - name: Pre-install
+        run: |
+          brew update
+          brew install llvm@17 cmake
+          echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile
+          echo 'export LDFLAGS="-L/usr/local/opt/llvm/lib"' >> /Users/runner/.bash_profile
+          echo 'export CPPFLAGS="-I/usr/local/opt/llvm/include"' >> /Users/runner/.bash_profile
+          source /Users/runner/.bash_profile
+          clang --version
+      - name: Configure Project
+        uses: threeal/cmake-action@v1.3.0
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
